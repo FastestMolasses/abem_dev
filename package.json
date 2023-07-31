@@ -16,5 +16,6 @@
     "@astrojs/rss": "^2.4.3",
     "@astrojs/sitemap": "^2.0.1",
     "astro": "^2.9.6"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }
