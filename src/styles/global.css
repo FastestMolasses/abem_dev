@@ -203,11 +203,10 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
 }
 
 .navigation {
-    margin: 14px 0px 10px 0px;
+    margin: 0px 0px 35px 0px;
 }
 
 .navigation ul {
-    /* font-family: 'Berkeley', sans-serif; */
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -227,12 +226,12 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
 
 .nav-link {
     text-decoration: none;
-    color: #b7b7b7;
+    color: #868686;
     padding: 10px 0;
     display: block;
 
     &:hover {
-        color: #8e8e90;
+        color: #636363;
     }
 }
 
@@ -327,7 +326,8 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
 }
 
 .grid-item-2 {
-    background: linear-gradient(165deg, #2c4735 0%, #1d243e 60%, #101124 90%);
+    /* background: linear-gradient(165deg, #2c4735 0%, #1d243e 60%, #101124 90%); */
+    background-color: #0d1117;
     grid-area: item2;
 }
 
@@ -351,3 +351,24 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
     grid-area: item6;
     height: 400px;
 }
+
+.activity-chart {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* How many weeks to show */
+    grid-template-rows: repeat(7, 1fr); /* 1 for each day of the week */
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+.day {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.day[data-level='0'] { background: #161b22; }
+.day[data-level='1'] { background: #0e4429; }
+.day[data-level='2'] { background: #006d32; }
+.day[data-level='3'] { background: #26a641; }
+.day[data-level='4'] { background: #39d353; }

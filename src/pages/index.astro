@@ -1,6 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const weeks = 10;
+const daysPerWeek = 7;
+// Sample data
+const activityData = new Array(weeks * daysPerWeek).fill(0).map(() => Math.floor(Math.random() * 5));
 ---
 
 <!DOCTYPE html>
@@ -58,7 +63,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
                     <img src='codeedit-window-dark.webp' alt='' />
                 </div>
-                <div class='grid-item grid-item-2'>Item 2</div>
+                <div class='grid-item grid-item-2'>
+                    <div class='activity-chart'>
+                        {activityData.map((level, _) => (
+                            <div class='day' data-level={level}></div>
+                        ))}
+                    </div>
+                </div>
                 <div class='grid-item grid-item-3'>Item 3</div>
                 <div class='grid-item grid-item-4'>Item 4</div>
                 <div class='grid-item grid-item-5'>Item 5</div>
