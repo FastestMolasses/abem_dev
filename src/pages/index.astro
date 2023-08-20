@@ -5,7 +5,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 const weeks = 10;
 const daysPerWeek = 7;
 // Sample data
-const activityData = new Array(weeks * daysPerWeek).fill(0).map(() => Math.floor(Math.random() * 5));
+const activityData = new Array(weeks * daysPerWeek)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 5));
+
+const generateCircles = () => {
+  let circles = [];
+  const colors = ["#9FB89A", "#F7D0AA", "#EF8A7E", "#D85560", "#2C363A"];
+
+  for (let y = 1; y < 6; y++) {
+    for (let x = 1; x < 6; x++) {
+      circles.push({
+        cx: 0,
+        cy: 0,
+        r: 60 - x * 10,
+        fill: colors[x - 1]
+      });
+    }
+  }
+  return circles;
+};
+
+const circles = generateCircles();
 ---
 
 <!DOCTYPE html>
@@ -46,8 +67,10 @@ const activityData = new Array(weeks * daysPerWeek).fill(0).map(() => Math.floor
             </nav>
 
             <div class='main-content'>
+                <!-- CodeEdit -->
                 <div class='grid-item grid-item-1'>
                     <div class='border'></div>
+                    <div class='border-outer'></div>
                     <div class='content-wrapper'>
                         <img src='codeedit-icon.webp' alt='' />
                         <div class='text-wrapper'>
@@ -56,21 +79,43 @@ const activityData = new Array(weeks * daysPerWeek).fill(0).map(() => Math.floor
                             <div>
                                 <a
                                     href='https://github.com/FastestMolasses/CodeEdit'
-                                    target='_blank'>Learn more</a>
+                                    target='_blank'>Learn more</a
+                                >
                             </div>
                         </div>
                     </div>
 
                     <img src='codeedit-window-dark.webp' alt='' />
                 </div>
+
+                <!-- Github activity -->
                 <div class='grid-item grid-item-2'>
                     <div class='activity-chart'>
-                        {activityData.map((level, _) => (
-                            <div class='day' data-level={level}></div>
-                        ))}
+                        {
+                            activityData.map((level, _) => (
+                                <div class='day' data-level={level} />
+                            ))
+                        }
                     </div>
                 </div>
-                <div class='grid-item grid-item-3'>Item 3</div>
+
+                <!-- FastAPI template -->
+                <div class='grid-item grid-item-3'>
+                    <div class='fastapi-template'>
+                        <h2>Fastest</h2>
+                        <h2>FastAPI</h2>
+                        <a target="_blank" href="https://github.com/FastestMolasses/Fastest-FastAPI">Performant Python web server</a>
+
+                        <div class="background">
+                            <svg viewBox="-50 -50 100 100">
+                                {circles.map((circle) => (
+                                  <circle cx={circle.cx} cy={circle.cy} r={circle.r} fill={circle.fill} />
+                                ))}
+                              </svg>
+                        </div>
+                    </div>
+                </div>
+
                 <div class='grid-item grid-item-4'>Item 4</div>
                 <div class='grid-item grid-item-5'>Item 5</div>
                 <div class='grid-item grid-item-6'>Item 6</div>

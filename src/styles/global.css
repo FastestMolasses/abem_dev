@@ -168,9 +168,6 @@ hr {
     border-radius: 6px;
 }
 
-/* Firefox */
-scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
-
 .sr-only {
     border: 0;
     padding: 0;
@@ -263,7 +260,7 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
 
     min-width: 300px;
     min-height: 300px;
-    box-shadow: inset 0 0 30px #306FDB;
+    box-shadow: inset 0 0 30px #306fdb;
     position: relative;
     overflow: hidden;
 }
@@ -314,15 +311,17 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
     }
 }
 
-.grid-item-1 .border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 6px solid #306FDB;
-    border-radius: var(--border-radius);
-    pointer-events: none;
+.grid-item-1 {
+    & .border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 6px solid #306fdb;
+        border-radius: var(--border-radius);
+        pointer-events: none;
+    }
 }
 
 .grid-item-2 {
@@ -332,8 +331,9 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
 }
 
 .grid-item-3 {
-    background: linear-gradient(to right bottom, #1f224b 0%, #2d5d85 100%);
+    background: linear-gradient(to right bottom, bisque 0%, #1873be 100%);
     grid-area: item3;
+    padding: 0;
 }
 
 .grid-item-4 {
@@ -367,8 +367,58 @@ scrollbar-color: rgba(255, 255, 255, 0.1) rgb(0, 0, 0);
     border-radius: 4px;
 }
 
-.day[data-level='0'] { background: #161b22; }
-.day[data-level='1'] { background: #0e4429; }
-.day[data-level='2'] { background: #006d32; }
-.day[data-level='3'] { background: #26a641; }
-.day[data-level='4'] { background: #39d353; }
+.day[data-level='0'] {
+    background: #161b22;
+}
+.day[data-level='1'] {
+    background: #0e4429;
+}
+.day[data-level='2'] {
+    background: #006d32;
+}
+.day[data-level='3'] {
+    background: #26a641;
+}
+.day[data-level='4'] {
+    background: #39d353;
+}
+
+.fastapi-template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    color: bisque;
+
+    & h2 {
+        z-index: 1;
+        line-height: 0.8;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 10%, black 0%);
+    }
+
+    & a {
+        margin: 0;
+        z-index: 1;
+        color: snow;
+        text-decoration: none;
+        font-size: medium;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 20%, black 0%);
+
+        &:hover {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 20%, #1873be 0%);
+        }
+    }
+
+    /* & .background, svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        overflow: hidden;
+    } */
+}
