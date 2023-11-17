@@ -1,4 +1,6 @@
 ---
+import '@/styles/globals.css';
+
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
@@ -9,35 +11,62 @@ const activityData = new Array(weeks * daysPerWeek)
     .fill(0)
     .map(() => Math.floor(Math.random() * 5));
 
-const generateCircles = () => {
-  let circles = [];
-  const colors = ["#9FB89A", "#F7D0AA", "#EF8A7E", "#D85560", "#2C363A"];
+// TODO: AVIF images https://avif.io/
+// TODO: IMPLEMENT https://github.com/tinysearch/tinysearch
+// TODO: https://austingil.com/svg-favicons/
 
-  for (let y = 1; y < 6; y++) {
-    for (let x = 1; x < 6; x++) {
-      circles.push({
-        cx: 0,
-        cy: 0,
-        r: 60 - x * 10,
-        fill: colors[x - 1]
-      });
+// fast api
+// tauri base
+// crypto exchange
+// WIP app (2d game)
+// Eth balance server
+// 3d game engine
+
+// Tabs:
+// Compositions
+// Stories (include my toji image processing)
+// Github
+// Muted Link all the way to the right:
+// Source
+
+// Tabs at top:
+// Compositions
+// About
+// 3d Models
+// Shaders
+// Demos
+
+const generateCircles = () => {
+    let circles = [];
+    const colors = ['#9FB89A', '#F7D0AA', '#EF8A7E', '#D85560', '#2C363A'];
+
+    for (let y = 1; y < 6; y++) {
+        for (let x = 1; x < 6; x++) {
+            circles.push({
+                cx: 0,
+                cy: 0,
+                r: 60 - x * 10,
+                fill: colors[x - 1],
+            });
+        }
     }
-  }
-  return circles;
+    return circles;
 };
 
 const circles = generateCircles();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
         <main>
-            <h1 class='main-title space-title'>Abe M</h1>
-            <h1 class='main-title space-title'>Software Engineer</h1>
+            <div class='flex justify-between'>
+                <h1 class='space-title'>Abe M</h1>
+                <h1 class='space-title'>Software Engineer</h1>
+            </div>
 
             <nav class='navigation'>
                 <ul class=''>
@@ -100,21 +129,7 @@ const circles = generateCircles();
                 </div>
 
                 <!-- FastAPI template -->
-                <div class='grid-item grid-item-3'>
-                    <div class='fastapi-template'>
-                        <h2>Fastest</h2>
-                        <h2>FastAPI</h2>
-                        <a target="_blank" href="https://github.com/FastestMolasses/Fastest-FastAPI">Performant Python web server</a>
-
-                        <div class="background">
-                            <svg viewBox="-50 -50 100 100">
-                                {circles.map((circle) => (
-                                  <circle cx={circle.cx} cy={circle.cy} r={circle.r} fill={circle.fill} />
-                                ))}
-                              </svg>
-                        </div>
-                    </div>
-                </div>
+                <div class='grid-item grid-item-3'></div>
 
                 <div class='grid-item grid-item-4'>Item 4</div>
                 <div class='grid-item grid-item-5'>Item 5</div>

@@ -5,5 +5,13 @@
     "strictNullChecks": true,
     "noEmit": true,
     "incremental": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   }
 }
