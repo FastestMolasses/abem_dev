@@ -1,5 +1,6 @@
 # build output
 dist/
+
 # generated types
 .astro/
 
@@ -18,16 +19,3 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-
-# yarn
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# fonts
-public/fonts/berkeley-*
-public/fonts/universlt-*

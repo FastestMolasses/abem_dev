@@ -1,0 +1,28 @@
+---
+import '@/styles/globals.css';
+import '@/styles/grid.css';
+import '@/styles/fonts.css';
+
+import Header from '@/components/Header';
+import BaseHead from '@/components/BaseHead.astro';
+import ContentWrapper from '@/components/ContentWrapper';
+
+const { title, description } = Astro.props;
+const location = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang='en'>
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body>
+        <ContentWrapper>
+            <Header activePath={location} />
+
+            <main>
+                <slot />
+            </main>
+        </ContentWrapper>
+    </body>
+</html>

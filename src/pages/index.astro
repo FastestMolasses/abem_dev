@@ -1,140 +1,47 @@
 ---
 import '@/styles/globals.css';
+import '@/styles/grid.css';
+import '@/styles/fonts.css';
 
-import BaseHead from '../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
-const weeks = 10;
-const daysPerWeek = 7;
-// Sample data
-const activityData = new Array(weeks * daysPerWeek)
-    .fill(0)
-    .map(() => Math.floor(Math.random() * 5));
-
-// TODO: AVIF images https://avif.io/
-// TODO: IMPLEMENT https://github.com/tinysearch/tinysearch
-// TODO: https://austingil.com/svg-favicons/
-
-// fast api
-// tauri base
-// crypto exchange
-// WIP app (2d game)
-// Eth balance server
-// 3d game engine
-
-// Tabs:
-// Compositions
-// Stories (include my toji image processing)
-// Github
-// Muted Link all the way to the right:
-// Source
-
-// Tabs at top:
-// Compositions
-// About
-// 3d Models
-// Shaders
-// Demos
-
-const generateCircles = () => {
-    let circles = [];
-    const colors = ['#9FB89A', '#F7D0AA', '#EF8A7E', '#D85560', '#2C363A'];
-
-    for (let y = 1; y < 6; y++) {
-        for (let x = 1; x < 6; x++) {
-            circles.push({
-                cx: 0,
-                cy: 0,
-                r: 60 - x * 10,
-                fill: colors[x - 1],
-            });
-        }
-    }
-    return circles;
-};
-
-const circles = generateCircles();
+import Layout from '@/layouts/Layout.astro';
+import Game2D from '@/components/home/Game2D';
+import CodeEdit from '@/components/home/CodeEdit';
+import GameEngine from '@/components/home/GameEngine';
+import ProjectBox from '@/components/home/FastAPIBox';
+import GithubStats from '@/components/home/GithubStats';
 ---
 
-<!doctype html>
-<html lang='en'>
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <main>
-            <div class='flex justify-between'>
-                <h1 class='space-title'>Abe M</h1>
-                <h1 class='space-title'>Software Engineer</h1>
-            </div>
-
-            <nav class='navigation'>
-                <ul class=''>
-                    <li><a class='nav-link' href='#'>Compositions</a></li>
-                    <li>
-                        <a
-                            class='nav-link'
-                            href='https://github.com/FastestMolasses'
-                            target='_blank'>Github</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class='nav-link'
-                            href='https://twitter.com/abem_dev'
-                            target='_blank'>Twitter</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class='nav-link'
-                            href='https://github.com/FastestMolasses/abem_dev'
-                            target='_blank'>Source</a
-                        >
-                    </li>
-                </ul>
-            </nav>
-
-            <div class='main-content'>
-                <!-- CodeEdit -->
-                <div class='grid-item grid-item-1'>
-                    <div class='border'></div>
-                    <div class='border-outer'></div>
-                    <div class='content-wrapper'>
-                        <img src='codeedit-icon.webp' alt='' />
-                        <div class='text-wrapper'>
-                            <div>CodeEdit for macOS</div>
-                            <div>An Xcode-like native code editor</div>
-                            <div>
-                                <a
-                                    href='https://github.com/FastestMolasses/CodeEdit'
-                                    target='_blank'>Learn more</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-
-                    <img src='codeedit-window-dark.webp' alt='' />
-                </div>
-
-                <!-- Github activity -->
-                <div class='grid-item grid-item-2'>
-                    <div class='activity-chart'>
-                        {
-                            activityData.map((level, _) => (
-                                <div class='day' data-level={level} />
-                            ))
-                        }
-                    </div>
-                </div>
-
-                <!-- FastAPI template -->
-                <div class='grid-item grid-item-3'></div>
-
-                <div class='grid-item grid-item-4'>Item 4</div>
-                <div class='grid-item grid-item-5'>Item 5</div>
-                <div class='grid-item grid-item-6'>Item 6</div>
-            </div>
-        </main>
-    </body>
-</html>
+<Layout>
+    <div class='grid'>
+        <!-- CodeEdit -->
+        <div class='rectangle double-wide double-tall'>
+            <CodeEdit />
+        </div>
+        <!-- Github stats -->
+        <div class='rectangle single-wide single-tall'>
+            <GithubStats />
+        </div>
+        <!-- FastAPI -->
+        <div class='rectangle single-wide single-tall'>
+            <ProjectBox
+                title='Fastest FastAPI'
+                subtitle='Speed and Type Safety Redefined'
+                imageUrl='fastapi_box.avif'
+            />
+        </div>
+        <!-- 2D game -->
+        <div class='rectangle single-wide single-tall'>
+            <Game2D />
+        </div>
+        <!-- Game engine -->
+        <div class='rectangle double-wide single-tall'>
+            <GameEngine />
+        </div>
+        <!-- Tauri -->
+        <div class='rectangle double-wide single-tall'></div>
+        <!-- Eth Balance Server -->
+        <div class='rectangle single-wide single-tall'></div>
+        <!-- Crypto Exchange -->
+        <div class='rectangle full-wide double-tall'></div>
+    </div>
+</Layout>
