@@ -14,7 +14,7 @@ const Header = ({ activePath }: HeaderProps) => {
             </div>
             <div className='flex justify-between items-center mt-3 mb-6'>
                 <NavigationBar activePath={activePath} />
-                <div className='text-primary-muted text-sm mono flex h-3 items-center space-x-2 mr-3'>
+                <div className='text-primary-muted text-sm flex h-3 items-center space-x-2 mr-3'>
                     <a
                         href='https://github.com/FastestMolasses'
                         target='_blank'
@@ -24,7 +24,7 @@ const Header = ({ activePath }: HeaderProps) => {
                     </a>
                     <Separator orientation='vertical' />
                     <a
-                        href='https://github.com/FastestMolasses'
+                        href='https://github.com/FastestMolasses/abem_dev'
                         target='_blank'
                         className='hover:text-accent-muted'
                     >

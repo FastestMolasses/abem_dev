@@ -5,11 +5,11 @@ const GithubStats = () => {
     const activityData = new Array(weeks * daysPerWeek)
         .fill(0)
         .map(() =>
-            Math.random() > 0.45 ? Math.floor(Math.random() * 4) + 1 : 0,
+            Math.random() > 0.5 ? Math.floor(Math.random() * 4) + 1 : 0,
         );
 
     return (
-        <div className='activity-chart h-full w-full'>
+        <div className='activity-chart h-full w-full p-3.5'>
             {activityData.map((level, index) => (
                 <div key={index} className='day' data-level={level} />
             ))}

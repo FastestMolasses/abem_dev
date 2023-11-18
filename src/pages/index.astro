@@ -14,18 +14,17 @@ import GithubStats from '@/components/home/GithubStats';
 <Layout>
     <div class='grid'>
         <!-- CodeEdit -->
-        <div class='rectangle double-wide double-tall'>
+        <div class='rectangle double-wide double-tall max-h-80'>
             <CodeEdit />
         </div>
         <!-- Github stats -->
-        <div class='rectangle single-wide single-tall'>
+        <div class='rectangle single-wide single-tall min-h-[180px]'>
             <GithubStats />
         </div>
         <!-- FastAPI -->
         <div class='rectangle single-wide single-tall'>
             <ProjectBox
                 title='Fastest FastAPI'
-                subtitle='Speed and Type Safety Redefined'
                 imageUrl='fastapi_box.avif'
             />
         </div>

@@ -7,7 +7,7 @@ const Game2D = () => {
             }}
         >
             <div className='absolute inset-0 flex flex-col justify-center items-center p-4'>
-                <h2 className='text-primary text-2xl font-semibold'>Realms</h2>
+                <h1 className='text-primary text-3xl font-semibold'>Realms</h1>
                 <p className='text-primary-muted text-sm font-semibold'>
                     Mobile RPG game
                 </p>
