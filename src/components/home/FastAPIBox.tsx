@@ -12,9 +12,11 @@ const FastAPIBox = ({ title, imageUrl }: FastAPIBoxProps) => {
                 backgroundPosition: '70% 10%',
             }}
         >
-            <div className='absolute inset-0 flex flex-col justify-center items-center p-4'>
+            <div className='absolute inset-0 flex flex-col text-center justify-center items-center p-4'>
                 <h2 className='text-primary text-2xl font-semibold'>{title}</h2>
-                <p className='text-active text-sm font-semibold text-center'>Performant Python webserver</p>
+                <p className='text-active text-sm font-semibold'>
+                    Performant Python webserver
+                </p>
             </div>
         </div>
     );
