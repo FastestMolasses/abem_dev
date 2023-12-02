@@ -14,33 +14,38 @@ import GithubStats from '@/components/home/GithubStats';
 <Layout>
     <div class='grid'>
         <!-- CodeEdit -->
-        <div class='rectangle double-wide double-tall max-h-80'>
+        <div
+            class='rectangle double-wide double-tall max-h-[355px]'
+            id='codeedit'
+        >
             <CodeEdit />
         </div>
         <!-- Github stats -->
-        <div class='rectangle single-wide single-tall min-h-[180px]'>
+        <div
+            class='rectangle single-wide single-tall min-h-[180px]'
+            id='github-stats'
+        >
             <GithubStats />
         </div>
         <!-- FastAPI -->
-        <div class='rectangle single-wide single-tall'>
-            <ProjectBox
-                title='Fastest FastAPI'
-                imageUrl='fastapi_box.avif'
-            />
+        <div class='rectangle single-wide single-tall' id='fastapi'>
+            <ProjectBox title='Fastest FastAPI' imageUrl='fastapi_box.avif' />
         </div>
         <!-- 2D game -->
-        <div class='rectangle single-wide single-tall'>
+        <div class='rectangle single-wide single-tall' id='game2d'>
             <Game2D />
         </div>
         <!-- Game engine -->
-        <div class='rectangle double-wide single-tall'>
+        <div class='rectangle double-wide single-tall' id='game-engine'>
             <GameEngine />
         </div>
-        <!-- Tauri -->
-        <div class='rectangle double-wide single-tall'></div>
+    </div>
+    <div class='grid-2'>
         <!-- Eth Balance Server -->
-        <div class='rectangle single-wide single-tall'></div>
+        <div class='rectangle double-wide single-tall min-h-[180px]'></div>
+        <!-- Tauri -->
+        <div class='rectangle single-wide single-tall' id='tauri-square'></div>
         <!-- Crypto Exchange -->
-        <div class='rectangle full-wide double-tall'></div>
+        <div class='rectangle full-wide double-tall min-h-[400px]'></div>
     </div>
 </Layout>

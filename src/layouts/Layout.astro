@@ -4,8 +4,8 @@ import '@/styles/grid.css';
 import '@/styles/fonts.css';
 
 import Header from '@/components/nav/Header';
-import BaseHead from '@/components/BaseHead.astro';
-import ContentWrapper from '@/components/ContentWrapper';
+import BaseHead from '@/components/layout/BaseHead.astro';
+import ContentWrapper from '@/components/layout/ContentWrapper';
 
 const { title, description } = Astro.props;
 const location = Astro.url.pathname;
@@ -26,3 +26,4 @@ const location = Astro.url.pathname;
         </ContentWrapper>
     </body>
 </html>
+@/components/layout/ContentWrapper

@@ -1,8 +1,49 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto repeat(5, 1fr);
+    grid-template-rows: auto repeat(2, 1fr);
     gap: 12px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 760px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid #codeedit {
+        grid-column: 1 / -1;
+    }
+
+    .grid #github-stats {
+        display: none;
+    }
+
+    .grid #fastapi {
+        grid-column: 1 / 2; /* Occupy the first column */
+        grid-row: auto; /* Let it take the next available row */
+    }
+
+    .grid #game2d {
+        grid-column: 2 / 3; /* Occupy the second column */
+        grid-row: auto; /* It will automatically be placed in the same row as FastAPI */
+    }
+
+    .grid #game-engine {
+        grid-column: 1 / -1;
+    }
+
+    .grid-2 #tauri-square {
+        display: none;
+    }
 }
 
 .rectangle {

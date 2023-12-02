@@ -14,9 +14,13 @@ const FastAPIBox = ({ title, imageUrl }: FastAPIBoxProps) => {
         >
             <div className='absolute inset-0 flex flex-col text-center justify-center items-center p-4'>
                 <h2 className='text-primary text-2xl font-semibold'>{title}</h2>
-                <p className='text-active text-sm font-semibold'>
-                    Performant Python webserver
-                </p>
+                <a
+                    href='https://github.com/FastestMolasses/Fastest-FastAPI'
+                    target='_blank'
+                    className='text-link hover:text-link-hover no-underline text-sm'
+                >
+                    Performant Python Webserver
+                </a>
             </div>
         </div>
     );
