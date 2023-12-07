@@ -23,7 +23,7 @@ const Game2D = () => {
                         <p className='text-gray-300 text-xs -mt-1'>iOS &bull; Coming Soon</p>
                     </div>
 
-                    <div className='ml-auto'>
+                    <div className='ml-auto hidden md:block'>
                         <Badge variant='secondary' className='text-[10px] px-6 py-1 font-semibold text-link bg-[#F2F2F7] rounded-full'>Get</Badge>
                     </div>
                 </div>

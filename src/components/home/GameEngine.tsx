@@ -1,28 +1,26 @@
 const GameEngine = () => {
     return (
-        <div className='relative h-full w-full border-2 overflow-clip'>
+        <div className='relative h-full w-full'>
             {/* Background layer */}
             <div
-                className='absolute inset-0 bg-center bg-cover blur-[2px]'
+                className='absolute inset-0 bg-center bg-cover'
                 style={{
-                    backgroundImage: `url(wireframe5.jpg)`,
+                    backgroundImage: `url(amber.webp)`,
                     backgroundSize: '125%',
                 }}
             />
-            {/* Gradient overlay from black to transparent */}
+            {/* Overlay layer */}
             <div
-                className='absolute inset-0'
-                style={{
-                    background: 'linear-gradient(to right, black, transparent)',
-                }}
+                className='absolute inset-0 bg-black bg-opacity-50'
+                style={{ backdropFilter: 'blur(10px)' }}
             />
             {/* Content layer */}
             <div className='relative flex flex-col justify-center items-center p-4 h-full w-full'>
                 <h2 className='text-accent-muted text-2xl font-semibold'>
-                    Amber Engine
+                    Amber Game Engine
                 </h2>
-                <p className='text-secondary-muted text-sm font-semibold'>
-                    Custom game engine built in Rust
+                <p className='text-white-muted text-sm font-semibold'>
+                    Rebuilding X360 Era Charm in Rust
                 </p>
             </div>
         </div>
