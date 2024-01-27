@@ -24,7 +24,7 @@ const Game2D = () => {
                     </div>
 
                     <div className='ml-auto hidden md:block'>
-                        <Badge variant='secondary' className='text-[10px] px-6 py-1 font-semibold text-link bg-[#F2F2F7] rounded-full'>Get</Badge>
+                        <Badge variant='secondary' className='text-[10px] px-6 py-1 font-semibold text-link bg-[#F2F2F7] hover:bg-[#d6d6dc] rounded-full'>Get</Badge>
                     </div>
                 </div>
             </div>
