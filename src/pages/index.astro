@@ -9,6 +9,9 @@ import CodeEdit from '@/components/home/CodeEdit';
 import GameEngine from '@/components/home/GameEngine';
 import ProjectBox from '@/components/home/FastAPIBox';
 import GithubStats from '@/components/home/GithubStats';
+
+import { LayoutGrid } from '@/components/layout/LayoutGrid';
+
 ---
 
 <Layout>
@@ -37,15 +40,10 @@ import GithubStats from '@/components/home/GithubStats';
         </div>
         <!-- Game engine -->
         <div class='rectangle double-wide single-tall' id='game-engine'>
-            <GameEngine />
+            <GameEngine client:load />
         </div>
     </div>
-    <div class='grid-2'>
-        <!-- Eth Balance Server -->
-        <!-- <div class='rectangle double-wide single-tall min-h-[180px]'></div> -->
-        <!-- Tauri -->
-        <!-- <div class='rectangle single-wide single-tall' id='tauri-square'></div> -->
-        <!-- Crypto Exchange -->
-        <div class='rectangle full-wide double-tall min-h-[400px]'></div>
-    </div>
+
+    <!-- ElixrTools -->
+    <div class='rectangle full-wide double-tall min-h-[400px] mt-3'></div>
 </Layout>

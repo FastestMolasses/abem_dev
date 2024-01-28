@@ -1,0 +1,14 @@
+---
+import '@/styles/globals.css';
+import '@/styles/grid.css';
+import '@/styles/fonts.css';
+
+import Layout from '@/layouts/Layout.astro';
+import { LayoutGrid } from '@/components/layout/LayoutGrid';
+---
+
+<Layout>
+    <div class='h-screen py-20 w-full'>
+        <LayoutGrid client:load />
+    </div>
+</Layout>
