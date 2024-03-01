@@ -17,10 +17,10 @@ const GameEngine = () => {
             {/* Content layer */}
             <div className='relative flex flex-col justify-center items-center p-4 h-full w-full'>
                 <h2 className='text-accent-muted text-2xl font-semibold'>
-                    Amber Game Engine
+                    Amber Engine
                 </h2>
                 <p className='text-white-muted text-sm font-semibold'>
-                    Rebuilding X360 Era Charm in Rust
+                    Source Inspired Game Engine Written in Rust
                 </p>
             </div>
         </div>

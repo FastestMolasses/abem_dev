@@ -10,7 +10,7 @@
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .grid #codeedit {
         grid-column: 1 / -1;
         max-height: 330px;
@@ -20,7 +20,8 @@
         display: none;
     }
 
-    .grid #fastapi, .grid #game2d {
+    .grid #fastapi,
+    .grid #game2d {
         grid-column: span 1; /* Each occupies one column */
         grid-row: auto; /* Automatically placed in the next available row */
         min-height: 100px; /* Set a smaller minimum height */
