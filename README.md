@@ -1,5 +1,11 @@
 # Astro Starter Kit: Basics
 
+# Fonts
+Remember to buy font licenses for the fonts used in this project. The fonts used in this project are:
+
+https://unblast.com/neue-machina-font/ (https://pangrampangram.com/products/neue-machina)
+https://berkeleygraphics.com/typefaces/berkeley-mono/
+
 ```sh
 npm create astro@latest -- --template basics
 ```

@@ -15,7 +15,7 @@ const CodeEdit = () => {
                     </div>
                     <div>
                         <a
-                            href='https://github.com/FastestMolasses/CodeEdit'
+                            href='https://github.com/CodeEditApp/CodeEdit'
                             target='_blank'
                             className='text-link hover:text-link-hover no-underline text-sm'
                         >
