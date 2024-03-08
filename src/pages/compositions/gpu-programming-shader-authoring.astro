@@ -1,0 +1,287 @@
+---
+import CompositionLayout from '@/layouts/CompositionLayout.astro';
+---
+
+<style>
+    .keyword {
+        @apply text-link;
+        cursor: pointer;
+    }
+    .title {
+        @apply text-3xl font-extrabold mb-6 mt-8;
+    }
+    .title-link {
+        @apply hover:text-link-muted cursor-pointer;
+    }
+    .content-link {
+        @apply text-3xl font-extrabold mr-2;
+    }
+    .reference {
+        @apply text-link-muted;
+    }
+    .codeblock {
+        @apply bg-secondary p-4 rounded-lg my-6;
+    }
+</style>
+
+<!--
+#define m  *= mat2( cos( vec4(0,20,80,0) + t*//
+#define M  ( s.xz m.4)), s.xy m.3)) ,                        \
+               length(s + sin(t*.1) * 4.0)                         \
+             * log( length(s) + 1. )                         \
+             + sin( sin(sin(s+=s*0.3).y+s).z + s ).x * 1.0 - 10. \
+           )
+
+void mainImage(out vec4 o, vec2 u){
+    vec3 p,s,O,R = iResolution;
+    for( float t = iTime, d = 2.5, r;
+         R.z++ < 8.;
+         o.xyz = O = max(O+.7-r*.16,O)
+                   * ( vec3(.1,.3,.4) - vec3(1.5+sin(t*0.1)*1.9,2.5-sin(t*0.3)*1.9,3.0+sin(t)*1.3)*(M-r)/4.5 )
+       )
+        s = p = vec3( (u - 0.5*R.xy ) / R.y * d, 5.-d ),
+        d += min( r = M, 1. ),
+        s = p + .1;
+} -->
+<CompositionLayout>
+    <div
+        class='bg-center h-screen p-8 bg-no-repeat bg-cover'
+        style="background-image: url('/compositions/gpu-programming-shader-authoring/CoverImage.jpg');"
+    >
+        <!-- <a
+            href='/compositions'
+            class='text-primary hover:text-accent-muted ppneue'
+        >
+            &larr; Compositions
+        </a> -->
+
+        <div class="flex items'center justify-center h-full">
+            <div class='text-center'>
+                <h1 class='text-6xl text-white mono'>
+                    GPU Programming & <br /> Shader Authoring
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class='py-8 max-w-3xl mx-auto mb-24'>
+        <div class='flex items-center justify-between'>
+            <h2 class='title ppneue'>Content</h2>
+            <a
+                href='/compositions'
+                class='text-primary hover:text-accent-muted ppneue w-max block mt-1'
+            >
+                Return
+            </a>
+        </div>
+
+        <div class='flex flex-wrap'>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#overview'
+            >
+                Overview
+            </a>
+            <a
+                class='title-link content-link ppneue'
+                href='#rendering-pipeline'
+            >
+                Rendering Pipeline
+            </a>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#simd'
+            >
+                SIMD, SISD, and MIMD
+            </a>
+            <a
+                class='title-link content-link ppneue'
+                href='#gpu-memory-hierarchy-and-optimizations'
+            >
+                GPU Memory Hierarchy Optimization
+            </a>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#vertex-shaders'>Vertex Shaders</a
+            >
+            <a class='title-link content-link ppneue' href='#fragment-shaders'
+                >Fragment Shaders</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#compute-shaders'>Compute Shaders</a
+            >
+            <a class='title-link content-link ppneue' href='#texture-processing'
+                >Textures</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#buffers'>Buffers</a
+            >
+            <a class='title-link content-link ppneue' href='#buffer-vs-texture'
+                >Buffer vs Texture</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#memory-alignment'>Memory Alignment</a
+            >
+            <a class='title-link content-link ppneue' href='#memory-coalescing'
+                >Memory Coalescing</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#descriptors'>Descriptors</a
+            >
+            <a class='title-link content-link ppneue' href='#synchronization'
+                >Synchronization</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#double-triple-buffering'
+            >
+                Double / Triple Buffering
+            </a>
+            <a
+                class='title-link content-link ppneue'
+                href='#pipeline-state-changes'
+            >
+                Pipeline State Changes
+            </a>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#ubershaders'>Ubershaders</a
+            >
+            <a class='title-link content-link ppneue' href='#ray-tracing'
+                >Ray Tracing</a
+            >
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#mesh-shaders'>Mesh Shaders</a
+            >
+            <a class='title-link content-link ppneue' href='#faqs'>FAQs</a>
+        </div>
+
+        <h2 class='title ppneue title-link' id='overview'>Overview</h2>
+        <p>
+            GPUs excel at executing thousands of threads simultaneously, making
+            them ideal for problems that can be decomposed into many independent
+            calculations. <a class='keyword'>Shaders</a> are small programs executed
+            on different stages of the graphics pipeline. Shaders can be extended
+            to perform general-purpose computation, allowing for CPU and GPU parallelism.
+            This composition will cover the basics of GPU programming and shader
+            authoring.
+        </p>
+
+        <h2 class='title ppneue title-link' id='rendering-pipeline'>
+            Rendering Pipeline
+        </h2>
+        <p></p>
+
+        <h2 class='title ppneue title-link' id='simd'>SIMD, SISD, and MIMD</h2>
+        <p>
+            A CPU is a <a class='keyword'
+                >Single Instruction, Single Data (SISD)</a
+            >
+            processor, meaning each core can execute only one instruction at a time.
+            A GPU is a <a class='keyword'
+                >Single Instruction, Multiple Data (SIMD)</a
+            > processor, meaning each core can execute the same instruction on multiple
+            data elements simultaneously. A standard SISD instruction will load a
+            single value to a register and perform an operation on it. On the other
+            hand, a SIMD instruction will load several values to a special SIMD register
+            and perform an operation on all of them at once. GPUs excel at SIMD operations
+            and can process thousands of threads simultaneously. We can also write
+            SIMD code for CPUs, since modern CPUs support them.
+        </p>
+
+        <div class='codeblock'>
+            <pre>
+                <code>
+                    {
+                        "// SISD\n" +
+                        "for (int i = 0; i < N; i++) {\n" +
+                            "A[i] = B[i] + C[i];\n" +
+                        "}"}
+                    {
+                    "// SIMD\n" +
+                    "for (int i = 0; i < N; i+=4) {\n" +
+                        "vec4 B_tmp = load4(B + i);\n" +
+                        "vec4 C_tmp = load4(C + i);\n" +
+                        "vec4 A_tmp = add4(B_tmp, C_tmp);\n" +
+                        "store4(A_tmp, A + i);"}
+                }
+                </code>
+            </pre>
+        </div>
+
+        <!-- TODO: Placeholder image here -->
+        <!-- <img src='/placeholder.png' alt='SIMD' class='w-full rounded-lg my-2' /> -->
+
+        <p>
+            SIMD instructions can lead to significant energy savings and
+            speedups. For example, a SIMD3 instruction can load three values to
+            a register and perform an operation on all of them with one
+            instruction. Cheap parallelism with SIMD can be used to accelerate
+            image processing, data analysis, procedural generation, linear
+            algebra and other algorithms.
+            <br />
+            <br />
+            CPUs contain fixed-sized SIMD registers and are limited to the number
+            of elements that can be processed in parallel. If a CPU has 128-bit SIMD
+            registers, it will be able to process 4 floats, 2 doubles, 4 ints, or
+            anything else that fits into 128 bits. Compilers will typically generate
+            SIMD instructions in your code, a process called
+            <a class='keyword'>autovectorization</a>. You can help the compiler
+            by restructuring the code so effective vectorization can take place.
+            Structuring your memory layout is described more in
+            <a href='#memory-alignment' class='reference'>Memory Alignment</a> and
+            <a href='#memory-coalescing' class='reference'>Memory Coalescing</a
+            >.
+        </p>
+
+        <!-- TODO: ON HOVER, SHOW THE '#' SYMBOL AND MAKE THE TITLE CLICKABLE AND CHANGE THE URL -->
+        <h2
+            class='title ppneue title-link'
+            id='gpu-memory-hierarchy-and-optimizations'
+        >
+            GPU Memory Hierarchy Optimization
+        </h2>
+        <h2 class='title ppneue title-link' id='vertex-shaders'>
+            Vertex Shaders
+        </h2>
+        <h2 class='title ppneue title-link' id='fragment-shaders'>
+            Fragment Shaders
+        </h2>
+        <h2 class='title ppneue title-link' id='compute-shaders'>
+            Compute Shaders
+        </h2>
+        <h2 class='title ppneue title-link' id='texture-processing'>
+            Textures
+        </h2>
+        <h2 class='title ppneue title-link' id='buffers'>Buffers</h2>
+        <h2 class='title ppneue title-link' id='buffer-vs-texture'>
+            Buffer vs Texture
+        </h2>
+        <h2 class='title ppneue title-link' id='memory-alignment'>
+            Memory Alignment
+        </h2>
+        <h2 class='title ppneue title-link' id='memory-coalescing'>
+            Memory Coalescing
+        </h2>
+        <h2 class='title ppneue title-link' id='descriptors'>Descriptors</h2>
+        <h2 class='title ppneue title-link' id='synchronization'>
+            Synchronization
+        </h2>
+        <h2 class='title ppneue title-link' id='double-triple-buffering'>
+            Double/Triple Buffering
+        </h2>
+        <h2 class='title ppneue title-link' id='pipeline-state-changes'>
+            Pipeline State Changes
+        </h2>
+        <h2 class='title ppneue title-link' id='ubershaders'>Ubershaders</h2>
+        <h2 class='title ppneue title-link' id='ray-tracing'>Ray Tracing</h2>
+        <h2 class='title ppneue title-link' id='mesh-shaders'>Mesh Shaders</h2>
+        <h2 class='title ppneue title-link' id='faqs'>FAQs</h2>
+        <h2 class='title ppneue title-link' id='explore-more'>Explore More</h2>
+    </div>
+</CompositionLayout>
