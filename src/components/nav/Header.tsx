@@ -12,7 +12,7 @@ const navigationItems = [
 
 const Header = ({ activePath }: HeaderProps) => {
     return (
-        <header className='text-sm'>
+        <header className='ppneue font-light'>
             {/* Site title */}
             <div className='flex justify-between items-center mt-8'>
                 <h1 className='text-3xl space-text'>Abe M</h1>
@@ -28,8 +28,14 @@ const Header = ({ activePath }: HeaderProps) => {
                             className={cn(
                                 'text-primary-muted hover:text-accent-muted mr-3',
                                 {
+                                    // Highlight the current page, but only check the alphanumeric characters
                                     'text-accent-muted':
-                                        activePath === item.href,
+                                        activePath
+                                            .toLowerCase()
+                                            .replace(/\W/g, '') ===
+                                        item.href
+                                            .toLowerCase()
+                                            .replace(/\W/g, ''),
                                 },
                             )}
                         >
@@ -38,7 +44,7 @@ const Header = ({ activePath }: HeaderProps) => {
                     ))}
                 </nav>
 
-                <div className='text-primary-muted text-sm flex h-3 items-center space-x-2 mr-1'>
+                <div className='text-primary-muted flex h-3 items-center space-x-2 mr-1'>
                     <a
                         href='https://github.com/FastestMolasses'
                         target='_blank'

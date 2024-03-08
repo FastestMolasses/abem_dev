@@ -20,11 +20,18 @@ const Game2D = () => {
                         <h1 className='text-primary text-xl font-semibold'>
                             Realms
                         </h1>
-                        <p className='text-gray-300 text-xs -mt-1'>iOS &bull; Coming Soon</p>
+                        <p className='text-gray-300 text-xs -mt-1'>
+                            iOS &bull; Coming Soon
+                        </p>
                     </div>
 
                     <div className='ml-auto hidden md:block'>
-                        <Badge variant='secondary' className='text-[10px] px-6 py-1 font-semibold text-link bg-[#F2F2F7] hover:bg-[#d6d6dc] rounded-full'>Get</Badge>
+                        <Badge
+                            variant='secondary'
+                            className='text-xs px-6 py-1 text-link bg-[#F2F2F7] hover:bg-[#d6d6dc] rounded-full cursor-pointer select-none ppneue font-extrabold'
+                        >
+                            Get
+                        </Badge>
                     </div>
                 </div>
             </div>

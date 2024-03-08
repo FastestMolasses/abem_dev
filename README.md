@@ -6,6 +6,17 @@ Remember to buy font licenses for the fonts used in this project. The fonts used
 https://unblast.com/neue-machina-font/ (https://pangrampangram.com/products/neue-machina)
 https://berkeleygraphics.com/typefaces/berkeley-mono/
 
+# Font Design
+
+Titles & Stylized text: Neue Machina
+Font weights: 300, 400, 800
+
+Body: Univers
+Font weights: 400, 500, 600, 700
+
+Code: Berkeley Mono
+Font weights: 400
+
 ```sh
 npm create astro@latest -- --template basics
 ```
