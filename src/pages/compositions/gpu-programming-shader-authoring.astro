@@ -8,7 +8,7 @@ import CompositionLayout from '@/layouts/CompositionLayout.astro';
         cursor: pointer;
     }
     .title {
-        @apply text-3xl font-extrabold mb-6 mt-8;
+        @apply text-3xl font-extrabold mb-6 pt-8;
     }
     .title-link {
         @apply hover:text-link-muted cursor-pointer;
@@ -235,7 +235,7 @@ for (int i = 0; i < N; i+=4) {
             by restructuring the code so effective vectorization can take place.
             Structuring your memory layout is described more in
             <a href='#memory-alignment' class='reference'>Memory Alignment</a> and
-            <a href='#memory-coalescing' class='reference'>Memory Coalescing</a
+            <a href='#memory-layout' class='reference'>Memory Layout</a
             >.
         </p>
 
@@ -331,7 +331,7 @@ typedef struct {
             bytes.
         </p>
 
-        <h2 class='title ppneue title-link' id='memory-alignment'>
+        <h2 class='title ppneue title-link' id='memory-layout'>
             Memory Layout
         </h2>
 
