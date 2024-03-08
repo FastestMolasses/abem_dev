@@ -20,7 +20,7 @@ import CompositionLayout from '@/layouts/CompositionLayout.astro';
         @apply text-link-muted;
     }
     .codeblock {
-        @apply bg-secondary p-4 rounded-lg my-6;
+        @apply bg-secondary p-4 rounded my-6;
     }
 </style>
 
@@ -197,19 +197,19 @@ void mainImage(out vec4 o, vec2 u){
         <div class='codeblock'>
             <pre>
                 <code>
-                    {
-                        "// SISD\n" +
-                        "for (int i = 0; i < N; i++) {\n" +
-                            "A[i] = B[i] + C[i];\n" +
-                        "}"}
-                    {
-                    "// SIMD\n" +
-                    "for (int i = 0; i < N; i+=4) {\n" +
-                        "vec4 B_tmp = load4(B + i);\n" +
-                        "vec4 C_tmp = load4(C + i);\n" +
-                        "vec4 A_tmp = add4(B_tmp, C_tmp);\n" +
-                        "store4(A_tmp, A + i);"}
-                }
+                    {`
+// SISD
+for (int i = 0; i < N; i++) {
+    A[i] = B[i] + C[i];
+}
+// SIMD
+for (int i = 0; i < N; i+=4) {
+    vec4 B_tmp = load4(B + i);
+    vec4 C_tmp = load4(C + i);
+    vec4 A_tmp = add4(B_tmp, C_tmp);
+    store4(A_tmp, A + i);
+}
+`}
                 </code>
             </pre>
         </div>
@@ -265,6 +265,145 @@ void mainImage(out vec4 o, vec2 u){
         <h2 class='title ppneue title-link' id='memory-alignment'>
             Memory Alignment
         </h2>
+
+        <!-- TODO: DEFINITION FOR MEMORY BUS FROM CHATGPT -->
+        <!-- Memory Bus Width: This refers to the number of bits that can be transferred between the CPU (or GPU) and the memory subsystem (such as RAM) in a single cycle. Essentially, it's the "data path" or "bandwidth" of the memory interface. For example, a 64-bit memory bus can transfer 64 bits (or 8 bytes) of data simultaneously in one operation. The wider the memory bus, the more data can be transferred at once, which generally improves the system's ability to handle large volumes of data efficiently -->
+
+        <p>
+            Memory alignment is the process of aligning data structures in
+            memory so that their starting address is a multiple of a certain
+            byte size. CPUs and GPUs read and write memory in chunks, determined
+            by the architecture's <a class='keyword'>memory bus width</a> and <a
+                class='keyword'>cache line size</a
+            >. If data is well aligned in a way that fully fills the cache line,
+            it can be read and written in fewer transactions. Otherwise, the
+            processor will have to perform multiple memory transactions to read
+            or write the data. Accessing data sequentially will also make better
+            use of the memory bus width.
+        </p>
+
+        <div class='codeblock'>
+            <pre>
+                <code>
+                    {`
+typedef struct {
+    char a; // 1 byte
+    // 3 bytes padding needed here for alignment
+    int b;  // 4 bytes
+    char c; // 1 byte
+    // 3 bytes padding needed here to align
+} UnalignedStruct;
+
+// Offset |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7 
+// -------|-----|-----|-----|-----|-----|-----|-----|----- 
+// Data   |  a  | pad | pad | pad |  b  |  b  |  b  |  b
+
+typedef struct {
+    int b;  // 4 bytes
+    char a; // 1 byte
+    char c; // 1 byte
+    // 2 bytes padding added here to make the total size a multiple of 4 bytes
+} AlignedStruct;
+`}
+                </code>
+            </pre>
+        </div>
+
+        <p>
+            A struct's alignment will be determined by the largest alignment
+            requirement of its members. In the example above, the <span
+                class='mono'>UnalignedStruct</span
+            >
+            has a size of 12 bytes because of the padding needed for alignment. The
+            <span class='mono'>AlignedStruct</span> has a size of 8 bytes, which
+            is a multiple of 4 bytes. The memory layout of the <span
+                class='mono'>AlignedStruct</span
+            > is more efficient because it is aligned to the size of the int, which
+            is 4 bytes. The <span class='mono'>UnalignedStruct</span> is less efficient
+            because it is not aligned to the size of the int.
+            <br />
+            <br />
+            Compilers automatically add padding to structures to ensure each member
+            is correctly aligned according to the target architecture's requirements.
+            You can manually control the alignment of your structures by carefully
+            designing the layout of your data and explicitly specifying the alignment
+            of your data structures through compiler-specific attributes or padding
+            bytes.
+        </p>
+
+        <h2 class='title ppneue title-link' id='memory-alignment'>
+            Memory Layout
+        </h2>
+
+        <!-- TODO: REPLACE THIS CODE AND EXPLANATION -->
+        <div class='codeblock'>
+            <pre>
+                <code>
+                    {`
+class student {
+    std::string name;
+    double average_mark;
+};
+
+double calculate_average_mark(const std::vector<student>& students) {
+    double sum = 0.0;
+    for (int i = 0; i < students.size(); i++) {
+        sum += students[i].average_mark;
+    }
+    return sum / students.size();
+}
+                    `}
+                </code>
+            </pre>
+        </div>
+
+        <p>
+            The code consists of a class student with two fields: name and an
+            average_mark. It also consists of a function calculate_average_mark
+            which takes the array of student instances and calculate the average
+            mark of all students. Let’s assume that the sizeof(std::string) is
+            eight, and size(double) is also eight. In a vector of class student,
+            float values containing the average mark are non-consecutive, i.e.
+            they are located at memory offsets 8, 24, 40, etc. Even though it is
+            possible to use SIMD in this example, most compilers will switch to
+            scalar code because doing SIMD on a non-consecutive memory layout is
+            slow.2 When your program is actually processing data that is
+            important to be processed fast, you can rearrange your data in
+            memory so that it can be processed more efficiently. Game developers
+            have been doing it for years in a paradigm called data-oriented
+            design, that which focuses more on data and operations, and less on
+            abstractions and encapsulations. The basic idea revolves around
+            using struct-of-arrays instead of array-of-structs. We define a
+            class called students that has two arrays, one for names and one for
+            average marks
+        </p>
+
+        <div class='codeblock'>
+            <pre>
+                <code>
+                    {`
+class students {
+    std::vector<std::name> names;
+    std::vector<double> average_marks;
+    double calculate_average_mark() {
+        double sum = 0;
+        for (int i = 0; i < average_marks.size(); i++) {
+            sum += average_marks[i];
+        }
+        return sum / average_marks.size();
+    }
+};
+                    `}
+                </code>
+            </pre>
+        </div>
+
+        <p>
+            The compiler with the right switches will generate SIMD instructions
+            to calculate the average mark since the doubles containing the
+            average marks are laid out sequentially in memory.
+        </p>
+
         <h2 class='title ppneue title-link' id='memory-coalescing'>
             Memory Coalescing
         </h2>

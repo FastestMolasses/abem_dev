@@ -87,6 +87,10 @@
     font-display: swap;
 }
 
+code {
+    font-family: 'Berkeley', monospace;
+}
+
 .mono {
     font-family: 'Berkeley', monospace;
 }
