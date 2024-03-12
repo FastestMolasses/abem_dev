@@ -2,6 +2,10 @@
 import CompositionLayout from '@/layouts/CompositionLayout.astro';
 ---
 
+<!-- TODO: FAVICON IS BEING LOADED TWICE -->
+<!-- TODO: ADD PPNEUE TO PRELOAD FONTS IN <HEAD> -->
+<!-- TODO: UPDATE PROPERTIES IN THE <HEAD> TAG, LIKE IMAGE THUMBNAILS FOR THE COMPOSITION -->
+
 <style>
     .keyword {
         @apply text-link;
@@ -294,9 +298,9 @@ typedef struct {
     // 3 bytes padding needed here to align
 } UnalignedStruct;
 
-// Offset |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7 
-// -------|-----|-----|-----|-----|-----|-----|-----|----- 
-// Data   |  a  | pad | pad | pad |  b  |  b  |  b  |  b
+// Offset |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  | etc
+// -------|-----|-----|-----|-----|-----|-----|-----|-----|-----
+// Data   |  a  | pad | pad | pad |  b  |  b  |  b  |  b  |
 
 typedef struct {
     int b;  // 4 bytes
@@ -304,6 +308,10 @@ typedef struct {
     char c; // 1 byte
     // 2 bytes padding added here to make the total size a multiple of 4 bytes
 } AlignedStruct;
+
+// Offset |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7
+// -------|-----|-----|-----|-----|-----|-----|-----|-----
+// Data   |  b  |  b  |  b  |  b  |  a  |  c  | pad | pad
 `}
                 </code>
             </pre>

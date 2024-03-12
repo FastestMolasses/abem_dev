@@ -87,10 +87,45 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'HelveticaBackup';
+    src: url('/fonts/helvetica/Helvetica-Light.ttf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HelveticaBackup';
+    src: url('/fonts/helvetica/Helvetica.ttf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HelveticaBackup';
+    src: url('/fonts/helvetica/Helvetica-Bold.ttf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HelveticaBackup';
+    src: url('/fonts/helvetica/Helvetica-BoldOblique.ttf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HelveticaBackup';
+    src: url('/fonts/helvetica/Helvetica-Oblique.ttf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 code {
     font-family: 'Berkeley', monospace;
 }
-
 .mono {
     font-family: 'Berkeley', monospace;
 }
@@ -98,5 +133,6 @@ code {
     font-family: 'Univers', sans-serif;
 }
 .ppneue {
-    font-family: 'PPNeueMachina', sans-serif;
+    /* Helvetica is already built into Safari. Otherwise, attempt to load `HelveticaBackup`. */
+    font-family: 'Helvetica', 'HelveticaBackup', sans-serif;
 }
