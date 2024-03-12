@@ -25,6 +25,7 @@ const Header = ({ activePath }: HeaderProps) => {
                     {navigationItems.map((item) => (
                         <a
                             href={item.href}
+                            key={item.href}
                             className={cn(
                                 'text-primary-muted hover:text-accent-muted mr-3',
                                 {

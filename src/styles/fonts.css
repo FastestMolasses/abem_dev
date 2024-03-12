@@ -134,5 +134,5 @@ code {
 }
 .ppneue {
     /* Helvetica is already built into Safari. Otherwise, attempt to load `HelveticaBackup`. */
-    font-family: 'Helvetica', 'HelveticaBackup', sans-serif;
+    font-family: 'HelveticaBackup', sans-serif;
 }
