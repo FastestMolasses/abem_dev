@@ -46,6 +46,11 @@
     }
 }
 
+.background-blur {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
 .space-text {
     background: radial-gradient(#c3c6d2, #636363);
     background-size: 100% 100%;

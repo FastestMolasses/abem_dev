@@ -11,8 +11,7 @@ const GameEngine = () => {
             />
             {/* Overlay layer */}
             <div
-                className='absolute inset-0 bg-black bg-opacity-50'
-                style={{ backdropFilter: 'blur(10px)' }}
+                className='absolute inset-0 bg-black bg-opacity-50 background-blur'
             />
             {/* Content layer */}
             <div className='relative flex flex-col justify-center items-center p-4 h-full w-full'>
