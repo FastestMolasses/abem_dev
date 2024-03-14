@@ -21,8 +21,10 @@
         --active-muted: 122 20% 45%;
 
         --accent: 35 100% 57%;
-        --accent-hover: 35 100% 65%;
-        --accent-muted: 35 100% 40%;
+        /* --accent-hover: 35 100% 65%;
+        --accent-muted: 35 100% 40%; */
+        --accent-hover: 202 77% 61%;
+        --accent-muted: 202 45% 65%;
 
         --border: 0 0% 33%;
 
@@ -44,6 +46,10 @@
         font-family: 'Univers', sans-serif;
         font-weight: 400;
     }
+}
+
+.orange {
+    color: hsl(35, 100%, 40%);
 }
 
 .background-blur {
