@@ -2,5 +2,65 @@
 import Layout from '@/layouts/Layout.astro';
 ---
 
+<style>
+    .file-browser {
+        padding: 10px;
+    }
+
+    .file-browser ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .file-browser li {
+        border-bottom: 1px dotted;
+        @apply border-primary-muted;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .file-browser ul ul {
+        margin-top: 5px;
+        margin-left: 20px;
+        border-left: 1px dotted;
+        @apply border-primary-muted;
+        padding-left: 10px;
+    }
+
+    .icon {
+        margin-right: 10px;
+    }
+
+    .name {
+        flex-grow: 1;
+    }
+</style>
+
 <Layout>
+    <div class='file-browser mono text-sm text-primary-muted'>
+        <ul>
+            <li>
+                <span class='icon'>📁</span><span class='name'
+                    >Amber Engine</span
+                >
+            </li>
+            <ul id='folder1-contents'>
+                <li>
+                    <span class='icon'>📁</span><span class='name'
+                        >Characters</span
+                    >
+                </li>
+                <li>
+                    <span class='icon'>📁</span><span class='name'>Props</span>
+                </li>
+            </ul>
+            <li>
+                <span class='icon'>📁</span><span class='name'>House</span>
+            </li>
+            <!-- <li>
+                <span class='icon'>📄</span><span class='name'>test_file.txt</span>
+            </li> -->
+        </ul>
+    </div>
 </Layout>
