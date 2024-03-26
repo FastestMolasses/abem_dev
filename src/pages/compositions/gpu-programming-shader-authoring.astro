@@ -179,6 +179,8 @@ void mainImage(out vec4 o, vec2 u){
             while the programmable stages (vertex, fragment, and compute
             shaders) allow for custom code execution to manipulate vertices,
             pixels, and perform general purpose computing on the GPU.
+
+            <!-- TODO: explain the role of the CPU and what should be processed on the CPU versus the GPU -->
         </p>
 
         <img src='/placeholder.png' alt='SIMD' class='w-full rounded-lg my-4' />
@@ -192,9 +194,14 @@ void mainImage(out vec4 o, vec2 u){
             can subdivide geometry into smaller patches, allowing for more detailed
             surfaces.
             <br />
+
+            <!-- TODO: PRIMITIVE ASSEMBLY -> RESEARCH IT -->
+
             &bullet; <a class='keyword'>Rasterization</a> is a fixed-function stage
             that converts primitives into a raster image, determining which pixels
             are covered by the primitive.
+
+            <!-- NOTE: DIFFERENT GRAPHICS APIS CAN INCLUDE DIFFERENT STAGES? -->
         </p>
 
         <!-- TODO: RASTERIZATION IMAGE -->

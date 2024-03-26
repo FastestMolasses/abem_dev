@@ -1,0 +1,94 @@
+---
+import CompositionLayout from '@/layouts/CompositionLayout.astro';
+---
+
+<!-- TODO: FAVICON IS BEING LOADED TWICE --><!-- TODO: ADD PPNEUE TO PRELOAD FONTS IN <HEAD> --><!-- TODO: UPDATE PROPERTIES IN THE <HEAD> TAG, LIKE IMAGE THUMBNAILS FOR THE COMPOSITION -->
+<style>
+    .keyword {
+        @apply text-link;
+        cursor: pointer;
+    }
+    .title {
+        @apply text-3xl font-extrabold mb-6 pt-8;
+    }
+    .title-link {
+        @apply hover:text-link-muted cursor-pointer;
+    }
+    .content-link {
+        @apply text-3xl font-extrabold mr-2;
+    }
+    .reference {
+        @apply text-link-muted;
+    }
+    .codeblock {
+        @apply bg-secondary p-4 rounded my-6;
+    }
+</style>
+
+<CompositionLayout>
+    <div
+        class='bg-center h-screen p-8 bg-no-repeat bg-cover'
+        style="background-image: url('/compositions/gpu-programming-shader-authoring/CoverImage.jpg');"
+    >
+        <div class="flex items'center justify-center h-full">
+            <div class='text-center'>
+                <h1 class='text-6xl text-white mono'>
+                    Advanced Multithreading
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class='py-8 max-w-3xl mx-auto mb-24'>
+        <div class='flex items-center justify-between'>
+            <h2 class='title ppneue'>Content</h2>
+            <a
+                href='/compositions'
+                class='text-primary hover:text-accent-muted ppneue w-max block mt-1'
+            >
+                Return
+            </a>
+        </div>
+
+        <div class='flex flex-wrap'>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#overview'
+            >
+                Overview
+            </a>
+            <a
+                class='title-link content-link ppneue'
+                href='#rendering-pipeline'
+            >
+                False Sharing
+            </a>
+            <a
+                class='title-link content-link ppneue text-primary-muted'
+                href='#simd'
+            >
+                Spin Wait
+            </a>
+            <a class='title-link content-link ppneue' href='#faqs'>FAQs</a>
+        </div>
+
+        <h2 class='title ppneue title-link' id='overview'>Overview</h2>
+        <p></p>
+
+        <h2 class='title ppneue title-link' id='rendering-pipeline'>
+            False Sharing
+        </h2>
+        <p>
+            False sharing occurs when threads on different processors modify
+            variables that reside on the same cache line, leading to unnecessary
+            data transfer between caches and significant performance
+            degradation. The cache line size is commonly 64 bytes on modern
+            processors, but it can vary. The StopPad struct is deliberately
+            oversized and aligned to avoid false sharing by ensuring that the
+            Stop flag occupies its own cache line, thus preventing other
+            variables from being mapped to the same cache line.
+        </p>
+
+        <h2 class='title ppneue title-link' id='simd'>Spin Wait</h2>
+    </div>
+</CompositionLayout>
